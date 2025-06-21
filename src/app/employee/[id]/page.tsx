@@ -216,7 +216,7 @@ export default function EmployeeDetailPage() {
                     <div className="flex items-center gap-2">
                       <RatingStars rating={item.rating} />
                       <Badge color={item.rating >= 4 ? "success" : item.rating === 3 ? "warning" : "danger"}>
-                        {item.rating || "N/A"}
+                        {item.rating ? item.rating.toString() : "N/A"}
                       </Badge>
                     </div>
                   </div>
