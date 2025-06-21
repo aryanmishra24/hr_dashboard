@@ -15,9 +15,12 @@ const colorVariants = {
 };
 
 export function Badge({ children, color = "default", className = "" }: BadgeProps) {
+  // Ensure children is always a valid string
+  const displayValue = children != null ? String(children) : "";
+  
   return (
     <span className={`inline-block px-2 py-0.5 rounded text-xs font-semibold ${colorVariants[color]} ${className}`}>
-      {children}
+      {displayValue}
     </span>
   );
 } 

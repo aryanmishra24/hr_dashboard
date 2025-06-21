@@ -152,7 +152,7 @@ export default function EmployeeDetailPage() {
             <div className="flex items-center justify-center gap-2 mb-4">
               <RatingStars rating={user.rating || 0} />
               <Badge color={user.rating && user.rating >= 4 ? "success" : user.rating === 3 ? "warning" : "danger"}>
-                {user.rating} / 5
+                {user.rating ? `${user.rating} / 5` : "N/A"}
               </Badge>
             </div>
             <Badge color="info" className="mb-4">{user.department}</Badge>
@@ -216,7 +216,7 @@ export default function EmployeeDetailPage() {
                     <div className="flex items-center gap-2">
                       <RatingStars rating={item.rating} />
                       <Badge color={item.rating >= 4 ? "success" : item.rating === 3 ? "warning" : "danger"}>
-                        {item.rating}
+                        {item.rating || "N/A"}
                       </Badge>
                     </div>
                   </div>
