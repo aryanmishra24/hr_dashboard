@@ -62,7 +62,7 @@ export function UserCard({ user, onView, onBookmark, onPromote, isBookmarked = f
       <div className="flex items-center gap-2">
         <RatingStars rating={rating} />
         <Badge color={rating >= 4 ? "success" : rating === 3 ? "warning" : "danger"}>
-          {rating} / 5
+          {rating.toString()} / 5
         </Badge>
       </div>
       <div className="flex gap-2 mt-2">
