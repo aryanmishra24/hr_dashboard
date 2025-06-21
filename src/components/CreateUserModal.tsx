@@ -4,10 +4,21 @@ import { Modal } from "@/components/ui/Modal";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 
+interface User {
+  id: number;
+  firstName: string;
+  lastName: string;
+  email: string;
+  age: number;
+  department: string;
+  rating: number;
+  image: string;
+}
+
 interface CreateUserModalProps {
   open: boolean;
   onClose: () => void;
-  onSubmit: (user: any) => void;
+  onSubmit: (user: User) => void;
 }
 
 const departments = ["Engineering", "HR", "Sales", "Marketing", "Finance", "Support", "Product"];

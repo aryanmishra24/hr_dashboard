@@ -11,11 +11,13 @@ export function AuthNav() {
   }
 
   if (session) {
+    // Type assertion to ensure role is available
+    const user = session.user as typeof session.user & { role?: string };
     return (
       <div className="flex items-center gap-4">
         <div className="text-sm">
-          <div className="font-medium">{session.user?.name}</div>
-          <div className="text-gray-500">{session.user?.role}</div>
+          <div className="font-medium">{user?.name}</div>
+          <div className="text-gray-500">{user?.role}</div>
         </div>
         <Button variant="secondary" onClick={() => signOut()}>
           Logout

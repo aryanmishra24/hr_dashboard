@@ -2,6 +2,7 @@ import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { RatingStars } from "@/components/ui/RatingStars";
+import Image from "next/image";
 
 interface User {
   id: number;
@@ -44,9 +45,11 @@ export function UserCard({ user, onView, onBookmark, onPromote, isBookmarked = f
   return (
     <Card className="flex flex-col gap-4 items-center text-center">
       {user.image && (
-        <img
+        <Image
           src={user.image}
           alt={user.firstName + " " + user.lastName}
+          width={80}
+          height={80}
           className="w-20 h-20 rounded-full object-cover mx-auto"
         />
       )}

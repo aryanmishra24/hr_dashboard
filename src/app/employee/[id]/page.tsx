@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/Badge";
 import { RatingStars } from "@/components/ui/RatingStars";
 import { Button } from "@/components/ui/Button";
 import { ArrowLeft, Mail, Phone, MapPin, Calendar } from "lucide-react";
+import Image from "next/image";
 
 interface User {
   id: number;
@@ -138,9 +139,11 @@ export default function EmployeeDetailPage() {
         <Card className="lg:col-span-1">
           <div className="text-center">
             {user.image && (
-              <img
+              <Image
                 src={user.image}
                 alt={`${user.firstName} ${user.lastName}`}
+                width={128}
+                height={128}
                 className="w-32 h-32 rounded-full object-cover mx-auto mb-4"
               />
             )}

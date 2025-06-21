@@ -15,11 +15,6 @@ export default function BookmarksPage() {
     console.log("Promote user:", userId);
   };
 
-  const handleAssignToProject = (userId: number) => {
-    // TODO: Implement assign to project logic
-    console.log("Assign to project:", userId);
-  };
-
   if (bookmarkedUsers.length === 0) {
     return (
       <div className="text-center py-12">

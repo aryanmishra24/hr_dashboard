@@ -1,5 +1,5 @@
-import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
+import type { NextAuthOptions } from "next-auth";
 
 const mockUsers = [
   {
@@ -18,7 +18,7 @@ const mockUsers = [
   },
 ];
 
-export const { handlers, auth, signIn, signOut } = NextAuth({
+export const authOptions: NextAuthOptions = {
   providers: [
     CredentialsProvider({
       name: "credentials",
@@ -71,4 +71,4 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     strategy: "jwt",
   },
   debug: process.env.NODE_ENV === "development",
-}); 
+}; 
