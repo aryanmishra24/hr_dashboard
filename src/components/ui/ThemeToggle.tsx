@@ -1,13 +1,15 @@
 "use client";
 import { useTheme } from "@/hooks/useTheme";
 import { Moon, Sun } from "lucide-react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function ThemeToggle() {
   const { theme, toggleTheme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
   
-  // Initialize theme on mount
+  // Initialize theme on mount and prevent hydration mismatch
   useEffect(() => {
+    setMounted(true);
     const stored = localStorage.getItem('theme');
     if (stored === 'light' || stored === 'dark') {
       setTheme(stored);
@@ -17,10 +19,20 @@ export default function ThemeToggle() {
   }, [setTheme]);
   
   const handleClick = () => {
-    console.log('ThemeToggle clicked, current theme:', theme);
     toggleTheme();
-    console.log('ThemeToggle clicked, new theme should be:', theme === 'light' ? 'dark' : 'light');
   };
+  
+  // Don't render anything until mounted to prevent hydration mismatch
+  if (!mounted) {
+    return (
+      <button
+        aria-label="Toggle dark mode"
+        className="rounded-full p-2 hover:bg-accent transition-colors"
+      >
+        <Moon className="w-5 h-5" />
+      </button>
+    );
+  }
   
   return (
     <button

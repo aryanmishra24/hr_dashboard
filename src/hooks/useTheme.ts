@@ -16,7 +16,7 @@ const getInitialTheme = (): 'light' | 'dark' => {
 };
 
 export const useTheme = create<ThemeState>((set, get) => ({
-  theme: typeof window === 'undefined' ? 'light' : getInitialTheme(),
+  theme: 'light', // Always start with light to prevent hydration mismatch
   setTheme: (theme) => {
     set({ theme });
     if (typeof window !== 'undefined') {
