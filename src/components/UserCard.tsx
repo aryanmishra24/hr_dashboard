@@ -43,12 +43,8 @@ export function UserCard({ user, onView, onBookmark, onPromote, isBookmarked = f
   const department = user.department || getRandomDepartment(user.id);
   const rating = user.rating || getRandomRating(user.id);
   
-  // Debug logging
-  console.log('UserCard rating:', rating, typeof rating, rating.toString());
-  
-  // Create the rating string explicitly
+  // Create the rating string explicitly to avoid formatting issues
   const ratingString = `${rating.toString()} / 5`;
-  console.log('UserCard ratingString:', ratingString);
   
   return (
     <Card className="flex flex-col gap-4 items-center text-center">
