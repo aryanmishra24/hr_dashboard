@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Link from "next/link";
+import ThemeToggle from "@/components/ui/ThemeToggle";
+import { SessionProvider } from "@/components/providers/SessionProvider";
+import { AuthNav } from "@/components/AuthNav";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,9 +29,24 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground min-h-screen transition-colors duration-300`}
       >
-        {children}
+        <SessionProvider>
+          <nav className="w-full flex justify-between items-center px-6 py-4 border-b border-border bg-background sticky top-0 z-50">
+            <div className="flex gap-6 items-center">
+              <Link href="/" className="font-bold text-lg">HR Dashboard</Link>
+              <Link href="/bookmarks" className="hover:underline">Bookmarks</Link>
+              <Link href="/analytics" className="hover:underline">Analytics</Link>
+            </div>
+            <div className="flex gap-4 items-center">
+              <ThemeToggle />
+              <AuthNav />
+            </div>
+          </nav>
+          <main className="max-w-7xl mx-auto w-full px-4 py-8">
+            {children}
+          </main>
+        </SessionProvider>
       </body>
     </html>
   );
