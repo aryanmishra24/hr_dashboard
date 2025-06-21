@@ -15,6 +15,9 @@ const colorVariants = {
 };
 
 export function Badge({ children, color = "default", className = "" }: BadgeProps) {
+  // Debug logging
+  console.log('Badge children:', children, typeof children);
+  
   // Ensure children is always a valid string without any formatting issues
   let displayValue = "";
   if (children != null) {
@@ -24,6 +27,8 @@ export function Badge({ children, color = "default", className = "" }: BadgeProp
       displayValue = String(children);
     }
   }
+  
+  console.log('Badge displayValue:', displayValue);
   
   return (
     <span className={`inline-block px-2 py-0.5 rounded text-xs font-semibold ${colorVariants[color]} ${className}`}>

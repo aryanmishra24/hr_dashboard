@@ -42,6 +42,14 @@ export function UserCard({ user, onView, onBookmark, onPromote, isBookmarked = f
 }) {
   const department = user.department || getRandomDepartment(user.id);
   const rating = user.rating || getRandomRating(user.id);
+  
+  // Debug logging
+  console.log('UserCard rating:', rating, typeof rating, rating.toString());
+  
+  // Create the rating string explicitly
+  const ratingString = `${rating.toString()} / 5`;
+  console.log('UserCard ratingString:', ratingString);
+  
   return (
     <Card className="flex flex-col gap-4 items-center text-center">
       {user.image && (
@@ -62,7 +70,7 @@ export function UserCard({ user, onView, onBookmark, onPromote, isBookmarked = f
       <div className="flex items-center gap-2">
         <RatingStars rating={rating} />
         <Badge color={rating >= 4 ? "success" : rating === 3 ? "warning" : "danger"}>
-          {rating.toString()} / 5
+          {ratingString}
         </Badge>
       </div>
       <div className="flex gap-2 mt-2">
