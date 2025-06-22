@@ -2,6 +2,36 @@
 
 A comprehensive HR Performance Dashboard built with Next.js, featuring employee management, performance tracking, bookmarks, analytics, and authentication.
 
+## 🌐 Live Demo
+
+**🚀 [View Live Application](https://hr-dashboard-gamma-one.vercel.app/)**
+
+## 📸 Screenshots
+
+### Dashboard Homepage
+![Dashboard Homepage](./screenshots/dashboard-homepage.png)
+*Main dashboard with employee cards, search, and filtering capabilities*
+
+### Employee Details
+![Employee Details](./screenshots/employee-details.png)
+*Detailed employee profile with tabs for Overview, Projects, and Feedback*
+
+### Analytics Dashboard
+![Analytics](./screenshots/analytics-dashboard.png)
+*Data visualization with charts showing department performance and trends*
+
+### Bookmarks Manager
+![Bookmarks](./screenshots/bookmarks-manager.png)
+*Bookmarked employees with management functionality*
+
+### Authentication
+![Login](./screenshots/login-page.png)
+*Secure authentication with role-based access*
+
+### Light Mode
+![Dark Mode](./screenshots/light-mode.png)
+*Dark/Light theme toggle with persistent preferences*
+
 ## 🚀 Features
 
 ### ✅ Core Features (Implemented)
@@ -148,10 +178,26 @@ src/
 
 ## 🚀 Deployment
 
-### Vercel (Recommended)
+### Live Demo
+**🌐 [HR Dashboard - Live Application](https://hr-dashboard-gamma-one.vercel.app/)**
+
+The application is currently deployed and live on Vercel. You can:
+- ✅ **View the live application** at the link above
+- ✅ **Test all features** including authentication, search, bookmarks, and analytics
+- ✅ **Experience responsive design** across different devices
+- ✅ **Try dark/light mode** toggle functionality
+
+### Demo Credentials
+- **HR Manager:** `hr@company.com` / `password123`
+- **Admin:** `admin@company.com` / `admin123`
+
+### Vercel Deployment
 1. Push your code to GitHub
 2. Connect your repository to Vercel
-3. Deploy automatically
+3. Add environment variables:
+   - `NEXTAUTH_SECRET`: Your secure secret key
+   - `NEXTAUTH_URL`: Your Vercel deployment URL
+4. Deploy automatically
 
 ### Other Platforms
 The app can be deployed to any platform that supports Next.js:
