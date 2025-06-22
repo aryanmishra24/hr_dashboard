@@ -6,15 +6,6 @@ interface ThemeState {
   toggleTheme: () => void;
 }
 
-const getInitialTheme = (): 'light' | 'dark' => {
-  if (typeof window !== 'undefined') {
-    const stored = localStorage.getItem('theme');
-    if (stored === 'light' || stored === 'dark') return stored;
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) return 'dark';
-  }
-  return 'light';
-};
-
 export const useTheme = create<ThemeState>((set, get) => ({
   theme: 'light', // Always start with light to prevent hydration mismatch
   setTheme: (theme) => {
